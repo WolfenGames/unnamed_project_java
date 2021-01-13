@@ -8,6 +8,7 @@ public class WindowProps {
         this.Width = Width;
         this.Height = Height;
     }
+
     public WindowProps() {
         this.Title = "Unnamed Project";
         this.Width = 1280;

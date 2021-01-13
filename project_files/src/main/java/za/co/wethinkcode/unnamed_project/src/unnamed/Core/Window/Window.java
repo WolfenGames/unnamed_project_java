@@ -8,7 +8,7 @@ public interface Window {
     void    SetVsync(boolean vsync);
     boolean IsVsync();
 
-    void    GetNativeWindow();
+    long GetNativeWindow();
 
     default Window CreateWindow(WindowProps props) {
         return null;

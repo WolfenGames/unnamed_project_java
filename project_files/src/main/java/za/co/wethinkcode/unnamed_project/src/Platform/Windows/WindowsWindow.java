@@ -1,19 +1,17 @@
 package za.co.wethinkcode.unnamed_project.src.Platform.Windows;
 
+import org.lwjgl.opengl.GL;
 import za.co.wethinkcode.unnamed_project.src.unnamed.Core.Application.Application;
 import za.co.wethinkcode.unnamed_project.src.unnamed.Core.Window.Window;
 import za.co.wethinkcode.unnamed_project.src.unnamed.Core.Window.WindowProps;
 
 import org.lwjgl.*;
 import org.lwjgl.glfw.*;
-import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
 
 import java.nio.*;
 
-import static org.lwjgl.glfw.Callbacks.*;
 import static org.lwjgl.glfw.GLFW.*;
-import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -86,6 +84,8 @@ public class WindowsWindow implements Window {
         glfwShowWindow(m_Window);
         SetVsync(true);
 
+        GL.createCapabilities();
+
         // TODO: Rework this
 
         glfwSetKeyCallback(m_Window, (window, key, scan_code, action, mods) -> {
@@ -130,7 +130,7 @@ public class WindowsWindow implements Window {
     }
 
     @Override
-    public void GetNativeWindow() {
-
+    public long GetNativeWindow() {
+        return m_Window;
     }
 }

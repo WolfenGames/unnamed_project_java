@@ -1,9 +1,10 @@
 package za.co.wethinkcode.unnamed_project.src.unnamed.Core.Layer;
 
+import java.util.Iterator;
 import java.util.Vector;
 
 public class LayerStack {
-    Vector<Layer> m_Layers;
+    Vector<Layer> m_Layers = new Vector<Layer>();
     long m_LayerInsertIndex = 0;
 
     public void PushLayer(Layer layer) {
@@ -29,5 +30,9 @@ public class LayerStack {
             overlay.OnDetach();
             m_Layers.remove(overlay);
         }
+    }
+
+    public Iterator Iterator() {
+        return m_Layers.iterator();
     }
 }
